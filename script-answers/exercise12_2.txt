@@ -1,0 +1,10 @@
+docker container run -it ubuntu bash
+ls -la
+cd usr/
+ls -la
+cd src/
+ls -la
+mkdir app
+cd app/
+echo >> index.js
+exit
