@@ -1,0 +1,7 @@
+docker start -i lucid_cray
+apt update
+apt install curl
+Y
+curl -sL https://deb.nodesource.com/setup_16.x | bash
+apt install -y nodejs
+node /usr/src/app/index.js
