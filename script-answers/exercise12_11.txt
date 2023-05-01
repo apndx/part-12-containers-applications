@@ -1,0 +1,34 @@
+Script started on 2023-05-01 20:14:03+03:00 [TERM="xterm-256color" TTY="/dev/pts/2" COLUMNS="211" LINES="36"]
+(base) ]0;hdheli@lx7-fuxi083: /home/local/hdheli/kurssit/FullStack/part-12-containers-applications/todo-app/todo-backend[01;32mhdheli@lx7-fuxi083[00m:[01;34m/home/local/hdheli/kurssit/FullStack/part-12-containers-applications/todo-app/todo-backend[00m$ docker exec -it todo-backend-redis-1 bash
+[?2004hroot@a9a463a91282:/data# [7mredis-cli KEYS *todo[27mredis-cli KEYS *todo*
+[?2004l
+1) "added_todos"
+[?2004hroot@a9a463a91282:/data# [7mredis-cli GET added_todos[27mredis-cli GET added_todos
+[?2004l
+"26"
+[?2004hroot@a9a463a91282:/data# [7mredis-cli MSET added_todos 9001[27m
+root@a9a463a91282:/data# redis-cli MSET added_todos 9001
+[?2004l
+OK
+[?2004hroot@a9a463a91282:/data# [7mredis-cli GET added_todos[27mredis-cli GET added_todos
+[?2004l
+"9001"
+[?2004hroot@a9a463a91282:/data# [7mredis-cli GET added_todos[27mredis-cli GET added_todos
+[?2004l
+"27"
+[?2004hroot@a9a463a91282:/data# [7mredis-cli DEL added_todos[27mredis-cli DEL added_todos
+[?2004l
+(integer) 1
+[?2004hroot@a9a463a91282:/data# [7mredis-cli GET added_todos[27mredis-cli GET added_todos
+[?2004l
+(nil)
+[?2004hroot@a9a463a91282:/data# [7mredis-cli GET added_todos[27mredis-cli GET added_todos
+[?2004l
+"28"
+[?2004hroot@a9a463a91282:/data# exit
+[?2004l
+exit
+(base) ]0;hdheli@lx7-fuxi083: /home/local/hdheli/kurssit/FullStack/part-12-containers-applications/todo-app/todo-backend[01;32mhdheli@lx7-fuxi083[00m:[01;34m/home/local/hdheli/kurssit/FullStack/part-12-containers-applications/todo-app/todo-backend[00m$ exit
+exit
+
+Script done on 2023-05-01 20:17:09+03:00 [COMMAND_EXIT_CODE="0"]
