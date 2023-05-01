@@ -15,15 +15,14 @@ router.post('/', async (req, res) => {
     text: req.body.text,
     done: false
   })
-  const startCount = await getAsync("added_todos")
-  const endCount = Number(startCount) +1
-  await setAsync("added_todos", endCount)
+  const todos = await Todo.find({})
+  const count = todos.length
+  await setAsync("added_todos", count)
   res.send(todo);
 });
 
 router.get('/statistics', async (_, res) => {
   const count = await getAsync("added_todos")
-  
   const added_todos = {
     "added_todos" : Number(count)
   }
