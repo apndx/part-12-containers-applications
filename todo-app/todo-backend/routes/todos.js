@@ -53,8 +53,11 @@ singleRouter.get('/', async (req, res) => {
 
 /* PUT todo. */
 singleRouter.put('/', async (req, res) => {
-  const { id } = req.params
-  const updatedTodo = await Todo.updateOne(id, req.body)
+  update = {
+    text: req.body.text,
+    done: req.body.done
+  }
+  const updatedTodo = await req.todo.updateOne(update)
   res.send(updatedTodo).status(200)
 });
 
