@@ -9,10 +9,21 @@ services:
     ports:
       - 3001:3000
     environment:
-      - REACT_APP_BACKEND_URL=http://localhost:3000
+      - REACT_APP_BACKEND_URL=http://server:3000
     container_name: todo-front-dev # This will name the container
   debug-helper:
     image: busybox
+
+  server:
+    image: todo-back-dev
+    build:
+      context: './todo-backend' # The context will pick this directory as the "build context"
+      dockerfile: dev.Dockerfile # This will simply tell which dockerfile to read
+    volumes:
+      - ./todo-backend/:/usr/src/app # The path can be relative, so ./ is enough to say "the same location as the docker-compose.yml"
+    ports:
+      - 3000:3000    
+
   nginx:
     image: nginx:1.20.1
     volumes:
