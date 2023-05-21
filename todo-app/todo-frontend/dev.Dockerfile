@@ -3,7 +3,7 @@ FROM node:16
 WORKDIR /usr/src/app
 
 COPY . .
-ENV REACT_APP_BACKEND_URL=http://localhost:3000
+ENV REACT_APP_BACKEND_URL=http://localhost:3001
 
 # Change npm ci to npm install since we are going to be in development mode
 RUN npm install
